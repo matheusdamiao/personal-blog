@@ -45,7 +45,7 @@ export default async function AboutPage() {
           </div>
 
           <div className="flex flex-col gap-4">
-            <h3 className="text-xl font-bold">"Para de falar de trabalho, Matheus"</h3>
+            <h3 className="text-xl font-bold">&quot;Para de falar de trabalho, Matheus&quot;</h3>
             <p>Desde 2021, eu moro em Niterói, essa cidade maravilhosa que me deu de presente minha noiva, Luana, com quem há 8 anos compartilho meus dias. <br /> Moramos com nossos dois cachorros, Eva e Franz, dois vira-latas amorosamente encapetados, que proporcionam (além de amor) muita gargalhada e agitação no home office. </p>
             Eu amo dar uma corrida na praia; adoro passar horas lendo, no sofá, no sol ou em qualquer lugar, na real; costumava tocar violão e trompete, mas confesso que estou bem enferrujado; sempre amei muito praticar esportes (nerd esportista é raro né), atualmente mais assisto do que jogo, mas faz parte da vida. 
           </div>
