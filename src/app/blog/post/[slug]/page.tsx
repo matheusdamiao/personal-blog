@@ -1,4 +1,5 @@
-import { PortableText, type SanityDocument } from "next-sanity";
+import { type SanityDocument } from "next-sanity";
+import {PortableText} from '@portabletext/react'
 import imageUrlBuilder from "@sanity/image-url";
 
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
@@ -54,7 +55,7 @@ export default async function PostPage({
   return (
     <main className="container mx-auto grid gap-12 p-12">
       <div className="mb-4">
-        <Link href="/">← Back to events</Link>
+        <Link href="/blog">← Voltar</Link>
       </div>
       <div className="grid items-top gap-12 sm:grid-cols-2">
         <Image
@@ -76,6 +77,7 @@ export default async function PostPage({
             {author && <p>{author.name}</p> }
         </div>
         </div>
+        <PortableText value={post.post} />
       </div>
     </main>
   );
