@@ -9,11 +9,11 @@ import Image from "next/image";
 
 const EVENT_QUERY = `*[
     _type == "post" &&
-    slug == $slug
+    (slug.current == $slug || slug == $slug)
   ][0]{
     ...,
     author->{
-    name
+      name
     }
 }`;
 
@@ -30,25 +30,25 @@ export default async function PostPage({
 }: {
   params: { slug: string };
 }) {
-
-
-    console.log(params.slug);
   const post = await sanityFetch<SanityDocument>({
     query: EVENT_QUERY,
     params: {slug: params.slug},
   });
 
-  console.log(post);
   const {
-    name,
+    title,
     author,
     image,
-    date
+    date,
+    post: postContent,
+    body,
   } = post;
 
   const eventImageUrl = image
     ? urlFor(image)?.width(550).height(310).url()
     : null;
+
+  const portableTextValue = postContent ?? body;
 
 
 
@@ -60,7 +60,7 @@ export default async function PostPage({
       <div className="grid items-top gap-12 sm:grid-cols-2">
         <Image
           src={eventImageUrl || "https://via.placeholder.com/550x310"}
-          alt={name || "Post"}
+          alt={title || "Post"}
           className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
           height="310"
           width="550"
@@ -68,16 +68,16 @@ export default async function PostPage({
         <div className="flex flex-col justify-center space-y-4">
           <div className="space-y-4">
            
-            {name ? (
+            {title ? (
               <h1 className="text-4xl font-bold tracking-tighter mb-8">
-                {name}
+                {title}
               </h1>
             ) : null}
             {date && <p>{date}</p> }
             {author && <p>{author.name}</p> }
         </div>
         </div>
-        <PortableText value={post.post} />
+        <PortableText value={portableTextValue} />
       </div>
     </main>
   );

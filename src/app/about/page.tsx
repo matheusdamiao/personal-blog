@@ -15,9 +15,7 @@ export default async function AboutPage() {
 
   return (
     <main className="flex bg-white min-h-screen flex-col justify-between  relative">
-        <NavBar/>
-       <Image src={me} width={564} height={1314.52} alt='matheus looking at the horizon'  className="hidden lg:block fixed h-screen object-cover left-[-211px] top-0 "/>
-       <Image src={memobile} width={827} height={342.99} alt='matheus smiling to the camera' className="w-full absolute h-[300px] object-cover object-[0px_0px] sm:object-center top-0 left-0 right-0 block lg:hidden brightness-125"/>
+      <NavBar/>
       <div className="flex flex-col lg:ml-[400px]  lg:mt-[150px] px-8 mt-[300px] py-6  font-display gap-8 lg:gap-10 lg:max-w-[550px]">
         <div className="flex flex-col">
           <h1 className="text-3xl text-[#2E2E2E] lg:text-5xl font-medium flex items-center gap-3 pt-3">Sobre mim<span className="text-[#FF7038]">.</span></h1>
